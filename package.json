@@ -1,0 +1,29 @@
+{
+  "name": "JATE",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start:dev": "concurrently \"cd client && npm run build && npm run dev\" & \"cd server && npm run server\"",
+    "start": "concurrently \"cd client && npm run build && npm run start\" \"cd server && npm run start\"",
+    "server": "cd server && npm run server",
+    "build": "cd client/ && npm run build",
+    "unstall": "rm -rf client/dist",
+    "client": "cd client && npm run dev",
+    "heroku-prebuild": "cd client && npm install --dev && cd ../server && npm install --dev"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "if-env": "^1.0.4"
+  },
+  "devDependencies": {
+    "concurrently": "^5.3.0",
+    "nodemon": "^2.0.4"
+  },
+  "engines": {
+    "node": "20.x"
+  }
+}
